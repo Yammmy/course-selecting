@@ -1,4 +1,4 @@
-class Api::V1::TeachersController < ApplicationController
+class Api::V1::TeachersController < ApiController
   def index
     @teachers = Teacher.all
     render :json => {
