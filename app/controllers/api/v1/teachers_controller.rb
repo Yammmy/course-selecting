@@ -9,4 +9,9 @@ class Api::V1::TeachersController < ApplicationController
       }
     }
   end
+
+  def destroy
+    @teacher = Teacher.find(params[:id])
+    @teacher.destroy
+  end
 end
