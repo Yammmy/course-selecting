@@ -3,7 +3,8 @@ class Api::V1::TeachersController < ApiController
     @teachers = Teacher.all
     render :json => {
       :data => @teachers.map{ |teacher|
-        { :teacher => teacher.id,
+        { :name => teacher.name,
+          :teacher => teacher.id,
           :course  => teacher.courses
         }
       }
@@ -13,5 +14,6 @@ class Api::V1::TeachersController < ApiController
   def destroy
     @teacher = Teacher.find(params[:id])
     @teacher.destroy
+    render :json => { :message => "You've deleted teacher and courses" }
   end
 end
